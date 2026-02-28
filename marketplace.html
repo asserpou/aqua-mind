@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MarketPlace - AquaMind</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="marketplace.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="AquaMind_logo.png" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="CAquaMind_logo.png" class="logo-img" alt="AquaMind Logo">
+            <span class="logo-text">AquaMind</span>
+        </a>
+
+        <div class="menu">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="stories.html" data-key="stories">Stories&Charts</a>
+            <a href="aquaguard.html" data-key="aquaguard">AquaGuard</a>
+            <a href="interactive-house.html" data-key="interactive">InteractiveHouse</a>
+            <a href="marketplace.html" data-key="marketplace">MarketPlace</a>
+        </div>
+
+        <div class="nav-icons">
+            <div class="divider"></div>
+            <i class="fas fa-user"></i>
+
+            <!-- Language -->
+            <div class="lang-dropdown">
+                <i class="fas fa-globe" id="lang-toggle"></i>
+                <div class="lang-menu" id="lang-menu">
+                    <div class="lang-option" data-lang="en">🇬🇧 English</div>
+                    <div class="lang-option" data-lang="ar">🇸🇦 عربي</div>
+                    <div class="lang-option" data-lang="fr">🇫🇷 Français</div>
+                </div>
+            </div>
+
+            <i class="fas fa-sun" id="theme-toggle"></i>
+            
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="marketplace-hero">
+        <div class="wave-header">
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+                <h1>
+                    <span>Smart Water Solutions</span><br>
+                    <span>FOR SMART LIVING</span>
+                </h1>
+                <p class="hero-subtitle">Discover innovative products designed to help you save water and protect the environment</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="waves-container">
+
+       <svg class="wave wave-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z"
+        fill="#e6edf7" fill-opacity="0.3" />
+</svg>
+
+<!-- wave 2: متوسط -->
+<svg class="wave wave-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,50 C200,10 400,70 600,40 C800,10 1000,60 1200,35 C1320,20 1380,55 1440,45 L1440,80 L0,80 Z"
+        fill="#cbdff2" fill-opacity="0.6" />
+</svg>
+
+<!-- wave 3: الأقرب والأغمق -->
+<svg class="wave wave-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,60 C150,20 350,75 600,50 C850,25 1050,65 1250,45 C1350,35 1400,60 1440,55 L1440,80 L0,80 Z"
+        fill="#bdcde6" fill-opacity="1" />
+</svg>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="products-section" id="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Discover our range of innovative water solutions</p>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col logo-col">
+                <img src="nave pm.png" alt="AquaMind Logo" class="footer-logo">
+                <p>Empowering communities with smart water solutions for a sustainable future.</p>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="stories.html">Stories & Charts</a></li>
+                    <li><a href="aquaguard.html">AquaGuard</a></li>
+                    <li><a href="interactive-house.html">Interactive House</a></li>
+                    <li><a href="marketplace.html">Market Place</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col social-col">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <a href="admin-login.html" style="color: inherit; text-decoration: none;">©</a>2026 AquaMind. All rights
+            reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module" src="marketplace.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AquaGuard – AquaMind</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aquaguard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="AquaMind_logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<div class="navbar">
+  <a href="index.html" class="logo-container">
+    <img src="CAquaMind_logo.png" class="logo-img" alt="AquaMind Logo">
+    <span class="logo-text">AquaMind</span>
+  </a>
+  <div class="menu">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="stories.html" data-key="stories">Stories&Charts</a>
+        <a href="aquaguard.html" data-key="aquaguard">AquaGuard</a>
+        <a href="interactive-house.html" data-key="interactive">InteractiveHouse</a>
+        <a href="marketplace.html" data-key="marketplace">MarketPlace</a>
+  </div>
+  <div class="nav-icons">
+    <div class="divider"></div>
+    <i class="fas fa-user"></i>
+    <div class="lang-dropdown">
+      <i class="fas fa-globe" id="lang-toggle"></i>
+      <div class="lang-menu" id="lang-menu">
+        <div class="lang-option" data-lang="en">🇬🇧 English</div>
+        <div class="lang-option" data-lang="ar">🇸🇦 عربي</div>
+        <div class="lang-option" data-lang="fr">🇫🇷 Français</div>
+      </div>
+    </div>
+    <!-- THEME TOGGLE -->
+    <i class="fas fa-sun" id="theme-toggle" title="Toggle Light/Dark"></i>
+    
+    <!-- Hamburger Menu -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ GAME SECTION (top of page) ══════════ -->
+<section class="ag-game-section" id="gameSection">
+
+  <!-- Stars -->
+  <div class="ag-stars" id="agStars"></div>
+
+  <!-- River -->
+  <div class="ag-river"></div>
+
+  <!-- Title -->
+  <div class="ag-title-area">
+    <h1 class="ag-game-title">AQUA<span class="hl">GUARD</span></h1>
+    <p class="ag-game-tagline">PROTECT THE NILE · SAVE THE VILLAGE · GUARD THE WATER</p>
+  </div>
+
+  <!-- Game Frame -->
+  <div class="ag-frame-wrapper">
+    <div class="ag-corner-tr"></div>
+    <div class="ag-corner-bl"></div>
+    <div class="ag-frame-outer">
+
+      <button class="ag-fs-btn" id="fsBtn">
+        <i class="fas fa-expand" id="fsIcon"></i>
+        <span id="fsLabel">FULLSCREEN</span>
+      </button>
+
+      <iframe
+        id="gameFrame"
+        class="ag-iframe"
+        src="https://asserpou.github.io/game/"
+        allowfullscreen
+        allow="fullscreen"
+        title="AquaGuard Game"
+        scrolling="no"
+      ></iframe>
+
+    </div>
+
+    <!-- HUD -->
+    <div class="ag-hud">
+      <div class="ag-hud-left">AQUAGUARD <span>v1.0</span> — AQUAMIND</div>
+      <div class="ag-hud-right">
+        <div class="ag-dot"></div>
+        <div class="ag-dot"></div>
+        <div class="ag-dot"></div>
+        <span class="ag-hud-status">LIVE</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- ══════════════════════════════════════
+  حط السيكشن دي في aquaguard.html
+  بعد </section> (ag-game-section)
+  وقبل <footer class="site-footer">
+══════════════════════════════════════ -->
+
+<section class="ag-leaderboard-section" id="leaderboardSection">
+
+  <div class="ag-lb-header">
+    <span class="ag-lb-trophy">🏆</span>
+    <h2 class="ag-lb-title">HALL OF GUARDIANS</h2>
+    <p class="ag-lb-subtitle">TOP DEFENDERS OF THE NILE · LIVE RANKINGS</p>
+  </div>
+
+  <div class="ag-lb-tabs">
+    <button class="ag-lb-tab active" data-tab="alltime" onclick="switchTab('alltime')">ALL TIME</button>
+    <button class="ag-lb-tab" data-tab="weekly"  onclick="switchTab('weekly')">THIS WEEK</button>
+    <button class="ag-lb-tab" data-tab="daily"   onclick="switchTab('daily')">TODAY</button>
+  </div>
+
+  <div class="ag-lb-container">
+    <table class="ag-lb-table" id="lbTable">
+      <thead>
+        <tr>
+          <th class="center" style="width:60px;">#</th>
+          <th>GUARDIAN</th>
+          <th class="center">LEVEL</th>
+          <th class="right">SCORE</th>
+          <th class="right" style="width:110px;">DATE</th>
+        </tr>
+      </thead>
+      <tbody id="lbBody">
+        <!-- filled by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ag-lb-footer">
+    <span class="ag-lb-updated" id="lbUpdatedAt">UPDATED: —</span>
+    <button class="ag-lb-refresh-btn" onclick="refreshLeaderboard()">
+      <i class="fas fa-sync-alt" id="refreshIcon"></i>
+      REFRESH
+    </button>
+  </div>
+
+  <div class="ag-my-rank" id="myRankStrip" style="display:none;">
+    <span class="ag-my-rank-label">YOUR RANK</span>
+    <span class="ag-my-rank-value" id="myRankValue">#—</span>
+    <span class="ag-my-rank-label">BEST SCORE</span>
+    <span class="ag-my-rank-score" id="myBestScore">—</span>
+  </div>
+
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-col logo-col">
+      <img src="nave pm.png" alt="AquaMind Logo" class="footer-logo">
+      <p>Empowering communities with smart water solutions for a sustainable future.</p>
+    </div>
+    <div class="footer-col links-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories &amp; Charts</a></li>
+        <li><a href="aquaguard.html">AquaGuard</a></li>
+        <li><a href="interactive-house.html">Interactive House</a></li>
+        <li><a href="#">Market Place</a></li>
+      </ul>
+    </div>
+    <div class="footer-col social-col">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com"    target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://linkedin.com"  target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+  <div class="footer-bottom">©2026 AquaMind. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="aquaguard.js"></script>
+</body>
+</html>

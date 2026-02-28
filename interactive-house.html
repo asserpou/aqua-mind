@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive House – AquaMind</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="interactive-house.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="AquaMind_logo.png" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html" class="logo-container">
+    <img src="CAquaMind_logo.png" class="logo-img" alt="AquaMind Logo">
+    <span class="logo-text">AquaMind</span>
+  </a>
+    <div class="menu">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="stories.html" data-key="stories">Stories&Charts</a>
+        <a href="aquaguard.html" data-key="aquaguard">AquaGuard</a>
+        <a href="interactive-house.html" data-key="interactive">InteractiveHouse</a>
+        <a href="marketplace.html" data-key="marketplace">MarketPlace</a>
+    </div>
+  <div class="nav-icons">
+    <div class="divider"></div>
+    <i class="fas fa-user"></i>
+    <div class="lang-dropdown">
+      <i class="fas fa-globe" id="lang-toggle"></i>
+      <div class="lang-menu" id="lang-menu">
+        <div class="lang-option" data-lang="en">🇬🇧 English</div>
+        <div class="lang-option" data-lang="ar">🇸🇦 عربي</div>
+        <div class="lang-option" data-lang="fr">🇫🇷 Français</div>
+      </div>
+    </div>
+    <i class="fas fa-sun" id="theme-toggle"></i>
+    
+    <!-- Hamburger Menu -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="ih-hero">
+  <div class="ih-hero-overlay"></div>
+  <div class="ih-hero-particles" id="particles"></div>
+  <div class="ih-hero-content">
+    
+<button type="button" class="ih-badge-btn"
+  onclick="document.getElementById('interactive').scrollIntoView({behavior:'smooth'})">
+
+  <span class="btn-label">
+    <i class="fas fa-home"></i>
+    Interactive Experience
+  </span>
+
+  <span class="btn-arrows">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+</button>
+    <h1>Your <span class="ih-gradient-text">Smart Home</span><br>Water Journey</h1>
+    <p>Explore every room and discover how your daily habits impact water consumption. Click on a room to learn, save, and make a difference.</p>
+    <div class="ih-hero-stats">
+      <div class="ih-stat">
+        <span class="ih-stat-num" data-target="340">0</span><span>L</span>
+        <p>Avg. daily usage per person</p>
+      </div>
+      <div class="ih-stat-divider"></div>
+      <div class="ih-stat">
+        <span class="ih-stat-num" data-target="40">0</span><span>%</span>
+        <p>Can be saved with smart habits</p>
+      </div>
+      <div class="ih-stat-divider"></div>
+      <div class="ih-stat">
+        <span class="ih-stat-num" data-target="3">0</span><span></span>
+        <p>Sections to explore</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE MAP SECTION -->
+<section id="interactive" class="ih-interactive-map-section">
+
+  <header class="ih-map-header">
+    <h1>Interactive Home</h1>
+    <p>Click a room · then hover or select an item to explore</p>
+  </header>
+
+  <div class="ih-stage" id="stage">
+
+    <div class="ih-map-wrapper" id="imgWrapper">
+      <img src="upscalemedia-transformed.png" alt="House cross-section" draggable="false">
+    </div>
+
+    <div class="ih-hotspots-layer" id="overlayAreas"></div>
+    <div class="ih-items-layer"    id="itemLayer"></div>
+    <div class="ih-vignette"></div>
+
+    <!-- Side info panel -->
+    <div class="ih-info-panel" id="infoPanel">
+      <div class="ih-panel-header">
+        <div class="ih-panel-room-name" id="panelRoomName"></div>
+        <div class="ih-panel-subtitle">Select an item to learn tips</div>
+      </div>
+      <div class="ih-panel-items" id="panelItems"></div>
+    </div>
+
+    <!-- Tip card -->
+    <div class="ih-tip-card" id="tipCard">
+      <div class="ih-tip-badge">💡 Water Conservation Tip</div>
+      <div class="ih-tip-title" id="tipTitle"></div>
+      <p class="ih-tip-text" id="tipText"></p>
+    </div>
+
+    <!-- View More button -->
+    <button class="ih-view-more-btn" id="viewMoreBtn">
+      View More Details <span class="arr">↓</span>
+    </button>
+
+  </div><!-- /.ih-stage -->
+
+  <div class="ih-map-controls">
+    <button class="ih-btn-reset" id="resetBtn">↩ Reset View</button>
+    <span class="ih-hint">Click any room to zoom in</span>
+  </div>
+
+  <div class="ih-room-details" id="roomDetails"></div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-col logo-col">
+      <img src="nave pm.png" alt="AquaMind Logo" class="footer-logo">
+      <p>Empowering communities with smart water solutions for a sustainable future.</p>
+    </div>
+    <div class="footer-col links-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories &amp; Charts</a></li>
+        <li><a href="#">AquaGuard</a></li>
+        <li><a href="interactive-house.html">Interactive House</a></li>
+        <li><a href="#">Market Place</a></li>
+      </ul>
+    </div>
+    <div class="footer-col social-col">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com"    target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://linkedin.com"  target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+  <div class="footer-bottom">©2026 AquaMind. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="Interactive.js"></script>
+
+</body>
+</html>
